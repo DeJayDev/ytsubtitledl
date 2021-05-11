@@ -2,15 +2,12 @@ const youtubedl = require('youtube-dl-exec')
 
 const YOUTUBE_REGEX = /(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\/?\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/g
 
-async function getCaptions(url, auto, api) {
+async function getCaptions(url, auto) {
     if(!YOUTUBE_REGEX.test(url)) {
         throw new Error('Invalid YouTube URL provided.')
     }
     if(auto == undefined) {
         auto = false
-    }
-    if(api == undefined) {
-        api = false
     }
 
     const res = await youtubedl(url, {
@@ -27,7 +24,6 @@ async function getCaptions(url, auto, api) {
     return true
 
 }
-
 
 getCaptions('https://www.youtube.com/watch?v=DYVH5e5x5r0', true).then(res => console.log(res)).catch(err => console.log(err))
 
