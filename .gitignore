@@ -1,6 +1,6 @@
 *.vtt
 *.txt
-*.json
+config.json
 # Mine.
 runner.js 
 

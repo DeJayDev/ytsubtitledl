@@ -1,0 +1,37 @@
+name: Node Packages
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull
+        uses: actions/checkout@v2
+
+      - name: Prepare
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Deps
+        run: npm install
+
+      - name: Get SHA
+        id: get_sha
+        uses: benjlevesque/short-sha@v1.2
+
+      - name: Publish to GitHub
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          tag: ${{ steps.get_sha.outputs.sha }}
+          token: ${{ secrets.GH_DEPLOY }}
+          check-version: true
+          registry: https://npm.pkg.github.com
+
+      - name: Publish to npmjs
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          tag: ${{ steps.get_sha.outputs.sha }}
+          token: ${{ secrets.NPM_DEPLOY }}
+          check-version: true

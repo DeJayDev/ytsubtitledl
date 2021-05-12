@@ -1,0 +1,22 @@
+{
+  "name": "ytsubtitledl",
+  "version": "0.0.1",
+  "description": "Download the subtitles from your favorite videos",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeJayDev/ytsubtitledl.git"
+  },
+  "author": "Dj Isaac <contact@dejaydev.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/DeJayDev/ytsubtitledl/issues"
+  },
+  "homepage": "https://github.com/DeJayDev/ytsubtitledl#readme",
+  "dependencies": {
+    "youtube-dl-exec": "^1.2.3"
+  }
+}
