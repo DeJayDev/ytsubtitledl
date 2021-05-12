@@ -1,6 +1,8 @@
 *.vtt
 *.txt
 *.json
+# Mine.
+runner.js 
 
 # Logs
 logs
